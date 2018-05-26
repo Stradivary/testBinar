@@ -1,0 +1,23 @@
+<div class="hero-unit">  
+  <h1>Daftarkan Diri Anda</h1>  
+  <div class="form-inputs" style="margin-bottom:50px">
+      <div class="col-md-12" style="padding-bottom: 25px">
+          <input type="text" ng-model="name" id="name" name="name" class="form-control input-lg" placeholder="Name" required>
+        </div>
+    <div class="col-md-12" style="padding-bottom: 25px">
+      <input type="text" ng-model="email" id="email" name="email" class="form-control input-lg" placeholder="Email" required>
+    </div>
+    <div class="col-md-12" style="padding-bottom: 25px">
+      <input type="password" ng-model="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required>
+    </div>
+    <button class="btn btn-danger btn-block btn-lg" id="save" type="submit" ng-click="save(name,email,password)" style="color:white">
+      Register
+    </button>
+    <div class="col-md-12" style="padding-top:10px;text-align:right">
+      <a ng-click="back()" style="cursor:pointer"><p>Cancel</p></a>
+    </div>
+  </div>
+
+
+ 
+ </div>  

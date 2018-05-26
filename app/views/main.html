@@ -1,0 +1,22 @@
+<div class="col-md-12" style="text-align: center">
+  <h1>Login</h1> 
+
+
+<div class="hero-unit">  
+ 
+  <div class="form-inputs" style="margin-bottom:50px">
+    <div class="col-md-12" style="padding:0px 0px 15px 0px">
+      <input type="text" ng-model="email" id="username" name="username" class="form-control input-lg" placeholder="Email" required>
+    </div>
+    <div class="col-md-12" style="padding:0px 0px 15px 0px">
+      <input type="password" ng-model="password" id="password" name="password" class="form-control input-lg" placeholder="Password" required>
+    </div>
+    <button class="btn btn-danger btn-block btn-lg" id="submit" type="submit" ng-click="submit(email,password)" style="color:white">
+      Login
+    </button>
+    <div class="col-md-12" style="padding-top:10px;text-align:center">
+      <p>Don't Have an Account ? <span><a ng-click="register()" style="cursor:pointer">Register</a></span></p>
+    </div>
+  </div>
+ </div>  
+</div> 

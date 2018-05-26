@@ -1,0 +1,34 @@
+<div class="hero-unit">  
+  <h1>DETAIL ACCOUNT {{number}}</h1>  
+  <div class="form-inputs" style="margin-bottom:50px">
+    <div class="col-md-12" style="padding-bottom: 25px">
+      <table class="table table-bordered bordered">
+        <thead>
+          <tr>
+            <th>AMOUNT</th>
+            <th>CODE APPROVAL</th>
+            <th>DATE</th>
+            <th>IP</th>
+            <th>TYPE</th>
+            <th>USER AGENT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in detail">
+            <td>{{data.amount}}</td>
+            <td>{{data.approval_code}}</td>
+            <td>{{data.date | date: "dd - MMMM - y"}}</td>
+            <td>{{data.ip}}</td>
+            <td>{{data.type}}</td>
+            <td>{{data.user_agent}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+
+
+ 
+ </div>  

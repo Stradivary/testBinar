@@ -1,0 +1,31 @@
+<div class="hero-unit">  
+  <h1>Home</h1>  
+  <div class="form-inputs" style="margin-bottom:50px">
+    <div class="col-md-12" style="padding-bottom: 25px">
+      <table class="table table-bordered bordered">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>NUMBER</th>
+            <th>OPENING BALANCE</th>
+            <th>CURRENCY</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in getAllAccount">
+            <td>{{data.name}}</td>
+            <td>{{data.number}}</td>
+            <td>{{data.opening_balance}}</td>
+            <td>{{data.currency}}</td>
+            <td><button class="btn btn-success" ng-click="toDetail(data.number)">Detail</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+
+
+ 
+ </div>  
