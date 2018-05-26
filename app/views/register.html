@@ -1,5 +1,7 @@
+<div class="col-md-12" style="text-align: center">
+    <h1>Register</h1>  
 <div class="hero-unit">  
-  <h1>Daftarkan Diri Anda</h1>  
+  
   <div class="form-inputs" style="margin-bottom:50px">
       <div class="col-md-12" style="padding-bottom: 25px">
           <input type="text" ng-model="name" id="name" name="name" class="form-control input-lg" placeholder="Name" required>
@@ -13,11 +15,10 @@
     <button class="btn btn-danger btn-block btn-lg" id="save" type="submit" ng-click="save(name,email,password)" style="color:white">
       Register
     </button>
-    <div class="col-md-12" style="padding-top:10px;text-align:right">
-      <a ng-click="back()" style="cursor:pointer"><p>Cancel</p></a>
-    </div>
+
   </div>
-
-
- 
  </div>  
+ <div class="col-md-12" style="padding-top:10px;text-align:center">
+    <p>Already have an Account ? <a ng-click="back()" style="cursor:pointer">Login</a></p>
+  </div>
+ </div>
