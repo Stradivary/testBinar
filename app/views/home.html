@@ -1,34 +1,23 @@
 <div class="col-md-12 header">
-    <h3>Product List</h3>
+  <p style="font-size:20px;color:#606060">Product List
+    <span style="margin-left:3%">
+      <a class="btn btn-primary" ng-click="addProduct()">Create New</a>
+    </span>
+    <span>
+      <a class="btn btn-danger" ng-click="logout()" style="float:right">Logout</a>
+    </span>
+  </p>
 </div>
-<div class="col-md-12">  
-
-  <div class="form-inputs" style="margin-bottom:50px">
-    <div class="col-md-12" style="padding-bottom: 25px">
-      <table class="table table-bordered bordered">
-        <thead>
-          <tr>
-            <th>NAME</th>
-            <th>NUMBER</th>
-            <th>OPENING BALANCE</th>
-            <th>CURRENCY</th>
-            <th>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="data in getAllAccount">
-            <td>{{data.name}}</td>
-            <td>{{data.number}}</td>
-            <td>{{data.opening_balance}}</td>
-            <td>{{data.currency}}</td>
-            <td><button class="btn btn-success" ng-click="toDetail(data.number)">Detail</button></td>
-          </tr>
-        </tbody>
-      </table>
+<div class="col-md-12">
+  <div class="col-md-12">
+    <div class="content-wrapper" ng-repeat="item in getData">
+      <div class="col-md-12" style="height:300px;padding:15px">
+        <img src="{{item.imageurl}}" style="max-width: 100%;max-height: 100%;height: auto">
+      </div>
+      <div class="col-md-12" style="border-top:1px solid #e5e5e5;padding:15px">
+        <p class="content-title">{{item.name}}</p>
+        <p class="content-desc">$ {{item.price}}</p>
+      </div>
     </div>
-   
   </div>
-
-
- 
- </div>  
+</div>

@@ -91,6 +91,25 @@ angular.module('simpleAngularApp')
                     return deferred.promise;
                 },
 
+                addProduk: function (paramAdd) {
+                    var deferred = $q.defer();
+
+                    $http({
+                        method: 'POST',
+                        url: urls + CONF.URL_REGISTER,
+                        timeout: CONF.TIMEOUT,
+                        headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
+                        data:paramAdd
+                    }).then(function successCallback(response) {    
+                        deferred.resolve(response);
+
+                    }), function errorCallback(response){
+                        
+                    }
+
+                    return deferred.promise;
+                },
+
                 getData:function(){
                     var deferred = $q.defer();
                     var access_token = $localStorage.accessToken;

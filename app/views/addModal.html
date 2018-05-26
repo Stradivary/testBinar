@@ -1,0 +1,53 @@
+<div class="modal-content">
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h4 class="modal-title" style="text-align:center;">{{modalParam.title}}</h4>
+</div>
+<div class="modal-body">
+    <!-- <div class="form-group">
+                                <label class="col-sm-4 control-label">Jabatan</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="modalParam.Jenjang" placeholder="Enter text">
+                                </div>
+                            </div> -->
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <label class="col-sm-4 control-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="modalParam.username" maxlength="50" placeholder="ex: johndoe@mail.com">
+                                </div>
+                                </div>
+                                </div>
+                                <br>
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <label class="col-sm-4 control-label">Nama Depan</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="modalParam.first_name" maxlength="30" placeholder="ex: John">
+                                </div>
+                                </div>
+                                </div>
+                                <br>
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <label class="col-sm-4 control-label">Nama Belakang</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="modalParam.last_name" maxlength="30" placeholder="ex: Doe">
+                                </div>
+                                </div>
+                                </div>
+                                <br>
+                            <div class="row">
+                            <div class="col-sm-12">
+                                <label class="col-sm-4 control-label">Nomor Telepon</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="modalParam.phone" maxlength="14" placeholder="ex: 08xxxxxxxx">
+                                </div></div></div>
+    
+
+</div>
+<div class="modal-footer" style="border-top:none;">
+        <button class="btn btn-primary" ng-click="close()" >Tutup</button>
+        <button class="btn btn-primary" ng-click="addMitra(modalParam)" >Simpan</button>
+    </div>
+    </div>

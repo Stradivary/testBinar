@@ -3,7 +3,7 @@
   * @ngdoc function  
   * @name simpleAngularApp.controller:MainCtrl  
   * @description  
-  * # MainCtrl  
+  * # HomeCtrl  
   * Controller of the simpleAngularApp  
   */  
  angular.module('simpleAngularApp')  
@@ -18,17 +18,49 @@
 
 
  
- function getAllAccont(){
+ function getAllData(){
    
    authService.getData().then(
      function(response){
-       $scope.getAllAccount = response.data.result;
+       $scope.getData = response.data.result;
        console.log(response.data.result)
        
      }
    )
  }
- getAllAccont();
+ getAllData();
+
+
+ self.addProduk = function() {
+
+  var modalInstance = $modal.open({
+      templateUrl: 'views/modal/addModal.html',
+      controller: 'ModalCtrl',
+      backdrop: 'static',
+      size: 'md',
+      keyboard: false,
+      resolve: {
+          modalParam: function() {
+              return {
+                  title: 'Add Produk',
+                  path: '',
+                  token: $localStorage.accessToken
+              };
+          }
+
+      }
+  });
+  modalInstance.result.then(function(selectedItem) {
+      authService.getData().then(function(response){
+      self.getData = response.data.result;
+
+});
+      
+  }, function() {
+      $log.info('Modal dismissed at: ' + new Date());
+  });
+  // self.bigTotalItems = self.data.length;
+}
 
 
  
