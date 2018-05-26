@@ -21,6 +21,7 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
+  padding:25px 15px 15px 15px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -60,7 +61,7 @@ body {
 }
 
 .hero-unit{
-  width: 50%;
+  width: 35%;
   height: auto;
   padding:30px;
   border: 0.5px solid #ccc;
@@ -71,7 +72,8 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    /* max-width: 730px; */
+    max-width: 100%;
   }
 
   /* Remove the padding we set earlier */

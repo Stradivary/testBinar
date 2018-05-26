@@ -7,35 +7,39 @@
   * Controller of the simpleAngularApp  
   */  
  angular.module('simpleAngularApp')  
-  .controller('RegisterCtrl', ['$scope','$uibModal','$log','authService','$location',RegisterCtrl]); 
-  function RegisterCtrl($scope,$uibModal,$log,authService,$location){  
+  .controller('RegisterCtrl', ['$scope','CONF','$uibModal','$log','authService','$location','messageService',RegisterCtrl]); 
+  function RegisterCtrl($scope,CONF,$uibModal,$log,authService,$location,messageService){  
   
-   $scope.animationsEnabled = true;  
+   $scope.animationsEnabled = true; 
+   var self = $scope; 
 
  $scope.back = function(){
    history.back();
  }
  $scope.credential ={};
+
   $scope.save = function (name,email,password) {
-    console.log(name)
 
-    if(name == undefined || name == ""){
-
-    } else if(email == undefined || email == ""){
-
-    }else if(password == undefined || password == ""){
-
+    var params = {
+      "name":name,
+      "email":email,
+      "password":password
     }
-    else{
-      // var payload = new FormData();
-      // payload.set("name", name);
-      // payload.set('email', email);
-      // payload.set('password', password);
+    
+
+    if(self.name == undefined || self.name == ""){
+      messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_ERROR,"Nama Harus di Isi");
+    } else if(self.email == undefined || self.email == ""){
+      messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_ERROR,"Email Harus di Isi");
+    }else if(self.password == undefined || self.password == ""){
+      messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_ERROR,"Password Harus di Isi");
+    }
+    else{   
       
-
-        authService.register(name,email,password).then(
+        authService.register(params).then(
         function(response){
-
+          console.log(params)
+          messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_SUCCESS,"Register Berhasil!");
             $location.path('/login')
 
 

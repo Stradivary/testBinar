@@ -20,10 +20,10 @@
  
  function getAllAccont(){
    
-   authService.getAccount().then(
+   authService.getData().then(
      function(response){
-       $scope.getAllAccount = response.data;
-       console.log(response.data)
+       $scope.getAllAccount = response.data.result;
+       console.log(response.data.result)
        
      }
    )

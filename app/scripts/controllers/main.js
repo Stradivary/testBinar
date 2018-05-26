@@ -7,23 +7,30 @@
   * Controller of the simpleAngularApp  
   */  
  angular.module('simpleAngularApp')  
-  .controller('MainCtrl', ['$scope','$uibModal','$log','authService','$localStorage','$location','$window',MainCtrl]) 
-  function MainCtrl($scope,$uibModal,$log,authService,$localStorage,$location,$window){  
+  .controller('MainCtrl', ['$scope','CONF','$uibModal','$log','authService','$localStorage','$location','$window','messageService',MainCtrl]) 
+  function MainCtrl($scope,CONF,$uibModal,$log,authService,$localStorage,$location,$window,messageService){  
 
    $scope.animationsEnabled = true;   
+   var self = $scope;
 
   $scope.submit = function (email,password) {
 
-    if(email == undefined || email == ""){
+    var paramLogin = {
+      "email":email,
+      "password":password
+    }
 
-    } else if(password == undefined || password == ""){
-
+    if(self.email == undefined || self.email == ""){
+      messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_ERROR,"Email Harus di Isi");
+    } else if(self.password == undefined || self.password == ""){
+      messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_ERROR,"Password Harus di Isi");
     }else{
-      authService.login(email,password).then(
+      authService.login(paramLogin).then(
         function(response){
-          $localStorage.accessToken = response.data.access_token;
-          var token = $window.localStorage.getItem('ngStorage-accessToken')
-          if(token != undefined && token != ""){
+          console.log(response)
+          messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_SUCCESS,"Berhasil Login!");
+          $localStorage.accessToken = response.data.result.access_token;
+          if($localStorage.accessToken != undefined && $localStorage.accessToken != ""){
             $location.path('/home')
           }
           

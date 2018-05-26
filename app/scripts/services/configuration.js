@@ -52,6 +52,16 @@ angular.module('simpleAngularApp')
         'URL_WS_NOTIFICATION'                           : '/notification',
         'WS_CHANNEL'                                    : '/topic/response',
 
+        //TOASTER
+        'TOASTER_BOTTOM_FULL'               : 'toast-bottom-full-width',
+        'TOASTER_TOP_FULL'                  : 'toast-top-full-width',
+        'TOASTER_TOP_CENTER'                : 'toast-top-center',
+        'TOASTER_TOP_RIGHT'                 : 'toast-top-right',
+        'TOASTER_SUCCESS'                   : 'success',
+        'TOASTER_ERROR'                     : 'error',
+        'TOASTER_LANGUAGE_ID'               : '?lang=IN_ID',
+        'TOASTER_LANGUAGE_US'               : '?lang=US',
+
 
     }
 );

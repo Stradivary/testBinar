@@ -4,7 +4,7 @@
 
 <div class="hero-unit">  
  
-  <div class="form-inputs" style="margin-bottom:50px">
+  <div class="form-inputs">
     <div class="col-md-12" style="padding:0px 0px 15px 0px">
       <input type="text" ng-model="email" id="username" name="username" class="form-control input-lg" placeholder="Email" required>
     </div>
@@ -14,9 +14,10 @@
     <button class="btn btn-danger btn-block btn-lg" id="submit" type="submit" ng-click="submit(email,password)" style="color:white">
       Login
     </button>
-    <div class="col-md-12" style="padding-top:10px;text-align:center">
-      <p>Don't Have an Account ? <span><a ng-click="register()" style="cursor:pointer">Register</a></span></p>
-    </div>
+
   </div>
- </div>  
+ </div>
+ <div class="col-md-12" style="padding-top:10px;text-align:center">
+    <p>Don't Have an Account ? <span><a ng-click="register()" style="cursor:pointer">Register</a></span></p>
+  </div>  
 </div> 

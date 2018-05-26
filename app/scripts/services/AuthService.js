@@ -22,7 +22,7 @@ angular.module('simpleAngularApp')
             var regex_url = /(https:\/\/)?(([^.]+)\.)/;
             var regex_false_url = /(http:\/\/)?(([^.]+))/;
 
-            var urls = "https://developer.dutfin.net/api-sandbox/v1";
+            var urls = "https://test-binar.herokuapp.com/";
 
 
             if((regex_url.exec(url)) != null){
@@ -50,15 +50,14 @@ angular.module('simpleAngularApp')
                 getEmail : email,
 
 
-                login: function (email,password) {
+                login: function (paramLogin) {
                     var deferred = $q.defer();
                     $http({
                         method: 'POST',
                         url: urls + CONF.URL_LOGIN,
                         timeout: CONF.TIMEOUT,
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        data: $.param({email:email,
-                            password:password})
+                        data: paramLogin
                     }).then(function successCallback(response) {
                         $localStorage.accessToken = response.access_token;
                         
@@ -73,16 +72,15 @@ angular.module('simpleAngularApp')
                     return deferred.promise;
                 },
 
-                register: function (name,email,password) {
+                register: function (paramRegister) {
                     var deferred = $q.defer();
+
                     $http({
                         method: 'POST',
                         url: urls + CONF.URL_REGISTER,
                         timeout: CONF.TIMEOUT,
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        data: $.param({name:name,
-                            email:email,
-                            password:password})
+                        data:paramRegister
                     }).then(function successCallback(response) {    
                         deferred.resolve(response);
 
@@ -93,12 +91,12 @@ angular.module('simpleAngularApp')
                     return deferred.promise;
                 },
 
-                getAccount:function(){
+                getData:function(){
                     var deferred = $q.defer();
                     var access_token = $localStorage.accessToken;
                     $http({
                         method:'GET',
-                        url: urls + CONF.URL_GET_ACCOUNTS,
+                        url: urls + CONF.URL_SHOW_DATA,
                         timeout:CONF.TIMEOUT,
                         headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
                     }).then(function successCallback(response) {    
