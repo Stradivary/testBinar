@@ -9,6 +9,8 @@ version 0.16.0.
 
 - Clone The Repository
 
+- Npm Install
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
