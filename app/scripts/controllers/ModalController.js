@@ -82,7 +82,7 @@ function ModalCtrl($scope,$http,
         } else if (self.modalParam.price == undefined || self.modalParam.price == '') {
             messageService.toasterMessage(CONF.TOASTER_TOP_RIGHT, CONF.TOASTER_ERROR, 'Harga harus di Isi');
         } else if (self.modalParam.imageurl == undefined || self.modalParam.imageurl == '') {
-            messageService.toasterMessage(CONF.TOASTER_TOP_RIGHT, CONF.TOASTER_ERROR, 'Nama Belakang harus di isi');
+            messageService.toasterMessage(CONF.TOASTER_TOP_RIGHT, CONF.TOASTER_ERROR, 'URL Image harus di isi');
         } else {
             authService.addProduk(add).then(
                 function(response) {
