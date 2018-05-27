@@ -19,7 +19,8 @@ angular
     'ngStorage',
     'angular-jwt',
     'ui.bootstrap',
-    'ui.bootstrap.modal'
+    'ui.bootstrap.modal',
+  
   ])
   .config(function ($routeProvider,$httpProvider, jwtOptionsProvider) {
 
@@ -39,10 +40,10 @@ angular
         controller:'HomeCtrl',
         controllerAs:'home'
       })
-      .when('/detail-account',{
-        templateUrl:'views/detail-account.html',
-        controller:'DetailAccountCtrl',
-        controllerAs:'detailaccount'
+      .when('/detailProduct',{
+        templateUrl:'views/detail-product.html',
+        controller:'DetailProductCtrl',
+        controllerAs:'detailproduct'
       })
       .otherwise({
         redirectTo: '/login'

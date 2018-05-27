@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name simpleAngularApp.auth
+ * @name simpleAngularApp.authService
  * @description
  * # auth
  * Service in the simpleAngularApp.
@@ -17,38 +17,9 @@ angular.module('simpleAngularApp')
         
         function ($http, $q, CONF, $localStorage, $location) {
 
-            var url = $location.absUrl().split('?')[0];
-
-            var regex_url = /(https:\/\/)?(([^.]+)\.)/;
-            var regex_false_url = /(http:\/\/)?(([^.]+))/;
-
             var urls = "https://test-binar.herokuapp.com/";
 
-
-            if((regex_url.exec(url)) != null){
-                    $localStorage.url_host = urls;
-                    
-            } 
-
-
-            var authenticate = function () {
-                var accessToken = $localStorage.accessToken;
-                return (accessToken != null);
-            };
-            var fullName = function () {
-                var fullName = $localStorage.fullName;
-                return fullName;
-            };
-            var email = function () {
-                var email = $localStorage.email;
-                return email;
-            };
-
             return {
-                getFullName:fullName,
-                isAuthenticated: authenticate,
-                getEmail : email,
-
 
                 login: function (paramLogin) {
                     var deferred = $q.defer();
@@ -93,13 +64,52 @@ angular.module('simpleAngularApp')
 
                 addProduk: function (paramAdd) {
                     var deferred = $q.defer();
-
+                    var access_token = $localStorage.accessToken;
                     $http({
                         method: 'POST',
-                        url: urls + CONF.URL_REGISTER,
+                        url: urls + CONF.URL_SHOW_DATA,
                         timeout: CONF.TIMEOUT,
                         headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
                         data:paramAdd
+                    }).then(function successCallback(response) {    
+                        deferred.resolve(response);
+
+                    }), function errorCallback(response){
+                        
+                    }
+
+                    return deferred.promise;
+                },
+
+
+                editProduk: function (paramEdit,id) {
+                    var deferred = $q.defer();
+                    var access_token = $localStorage.accessToken;
+                    $http({
+                        method: 'PUT',
+                        url: urls + CONF.URL_SHOW_DATA +'/'+id,
+                        timeout: CONF.TIMEOUT,
+                        headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
+                        data:paramEdit
+                    }).then(function successCallback(response) {    
+                        deferred.resolve(response);
+
+                    }), function errorCallback(response){
+                        
+                    }
+
+                    return deferred.promise;
+                },
+
+
+                deleteProduk: function (id) {
+                    var deferred = $q.defer();
+                    var access_token = $localStorage.accessToken;
+                    $http({
+                        method: 'DELETE',
+                        url: urls + CONF.URL_SHOW_DATA +'/'+id,
+                        timeout: CONF.TIMEOUT,
+                        headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
                     }).then(function successCallback(response) {    
                         deferred.resolve(response);
 
@@ -128,12 +138,12 @@ angular.module('simpleAngularApp')
                     return deferred.promise;
                 },
 
-                getDetailAccount:function(accnumber){
+                getDetailProduct:function(id){
                     var deferred = $q.defer();
                     var access_token = $localStorage.accessToken;
                     $http({
                         method:'GET',
-                        url: urls + CONF.URL_GET_ACCOUNT + '/' + accnumber + CONF.URL_GET_DETAIL_ACCOUNT,
+                        url: urls + CONF.URL_SHOW_DATA + '/' + id,
                         timeout:CONF.TIMEOUT,
                         headers:{'Content-Type': 'application/json',Authorization: 'Bearer '+ access_token},
                     }).then(function successCallback(response) { 
@@ -146,10 +156,5 @@ angular.module('simpleAngularApp')
 
                     return deferred.promise;
                 }
-
-            
-
-                
-
             };
         }]);

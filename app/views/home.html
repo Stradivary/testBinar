@@ -1,21 +1,28 @@
 <div class="col-md-12 header">
   <p style="font-size:20px;color:#606060">Product List
     <span style="margin-left:3%">
-      <a class="btn btn-primary" ng-click="addProduct()">Create New</a>
+      <a class="btn btn-primary" ng-click="addProduk()">Create New</a>
     </span>
     <span>
-      <a class="btn btn-danger" ng-click="logout()" style="float:right">Logout</a>
+      <a class="btn btn-danger" ng-click="logOut()" style="float:right">Logout</a>
     </span>
   </p>
 </div>
 <div class="col-md-12">
   <div class="col-md-12">
     <div class="content-wrapper" ng-repeat="item in getData">
-      <div class="col-md-12" style="height:300px;padding:15px">
-        <img src="{{item.imageurl}}" style="max-width: 100%;max-height: 100%;height: auto">
+      <div class="col-md-12" style="height:300px;padding:15px;background:url({{item.imageurl}});background-size:contain;background-repeat: no-repeat;">
+        <div class="col-md-12" style="text-align: right">
+          <a class="btn btn-success" ng-click="editProduk(item)">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+          <a class="btn btn-danger" ng-click="deleteProduk(item)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+        </div>
       </div>
       <div class="col-md-12" style="border-top:1px solid #e5e5e5;padding:15px">
-        <p class="content-title">{{item.name}}</p>
+        <p class="content-title" ng-click="toDetail(item.id)">{{item.name}}</p>
         <p class="content-desc">$ {{item.price}}</p>
       </div>
     </div>

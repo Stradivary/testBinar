@@ -51,7 +51,23 @@ body {
   border:1px solid #e5e5e5;
   margin-right:10px;
   margin-bottom:15px;
-  box-shadow: 10px 10px 5px #aaaaaa;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.breadcumb{
+  background:#2e2e2e;
+  padding:5px;
+  border-radius:5px;
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.content-bigImg{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+  padding:20px;
+  float:left;
+  height: 100%;
+  text-align: center;
 }
 
 .content-title{
@@ -59,6 +75,19 @@ body {
   font-family: sans-serif;
   font-weight: 400;
   color:#606060;
+  transition: 0.4s all ease-in-out;
+}
+.content-img{
+  max-width: 100%;
+  max-height:100%;
+  height:auto;
+}
+
+.content-title:hover{
+  font-size:18px;
+  margin-left:1%;
+  font-weight:500;
+  transition: 0.4s all ease-in-out;
 }
 
 .content-desc{
