@@ -15,6 +15,11 @@ version 0.16.0.
 
 Run `grunt` for building and `grunt serve` for preview.
 
+## Penggunaan Kode
+
+Dibangun dengan framework AngularJs v1.6.9 dengan konsep MVC ( View, Controller, dan Service )
+Setiap View mempunyai 1 Controller, dan Service berisi berbagai macam pemanggilan API melalui http request untuk melakukan Operasi CRUD.
+
 
 ## Note
 
