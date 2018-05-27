@@ -27,7 +27,6 @@ function HomeCtrl($scope, CONF, $uibModal, $log, authService, $location, $localS
   getAllData();
 
   $scope.toDetail = function (id){
-    console.log('woke')
     $location.path('/detailProduct').search({id: id});
   }
 

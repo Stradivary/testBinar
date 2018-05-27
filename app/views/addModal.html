@@ -18,7 +18,7 @@
             <div class="col-sm-12">
                 <label class="col-sm-4 control-label">Price ( US Dollar )</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" ng-model="modalParam.price" maxlength="30" placeholder="Price ( Dollar USD )">
+                    <input type="text" onkeypress="validate(event)" class="form-control" ng-model="modalParam.price" maxlength="30" placeholder="Price ( Dollar USD )">
                 </div>
             </div>
         </div>
@@ -40,3 +40,16 @@
         <button class="btn btn-primary" ng-show="modalParam.flag == 'Edit'" ng-click="editProduk(modalParam)">Update</button>
     </div>
 </div>
+
+<script type="text/javascript">  
+    function validate(evt) {
+      var theEvent = evt || window.event;
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode( key );
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
+    }
+  </script>

@@ -38,7 +38,6 @@
       
         authService.register(params).then(
         function(response){
-          console.log(params)
           messageService.toasterMessage(CONF.TOASTER_TOP_CENTER,CONF.TOASTER_SUCCESS,"Register Berhasil!");
             $location.path('/login')
 
